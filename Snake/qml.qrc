@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>../Pictures/Grass.jpg</file>
+        <file>Game.qml</file>
     </qresource>
 </RCC>
