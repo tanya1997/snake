@@ -19,9 +19,31 @@ ApplicationWindow {
             id: rectangle1
             x: 180
             y: 96
-            width: 72
-            height: 39
+            width: 40
+            height: 40
             color: "#ffffff"
+        }
+        Timer {
+            id:time
+            interval: 100
+            repeat: true
+            running: true
+            onTriggered: {
+                snake.snakeAlongTheXPosition(rectangle1.x)
+                snake.snakeAlongTheYPosition(rectangle1.y)
+
+                rectangle1.x = snake.snakeMovementX()
+                rectangle1.y = snake.snakeMovementY()
+            }//rectangle1.x = snake.snakeMovementDown(rectangle1.x)
+
+        }
+    }
+
+    MouseArea {
+        id: mouseArea1
+        anchors.fill: parent
+        onClicked: {
+            snake.theChangeInDirectionOfMovementSnake(mouseX, mouseY)
         }
     }
 
