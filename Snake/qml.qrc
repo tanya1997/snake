@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>../Pictures/Grass.jpg</file>
         <file>Game.qml</file>
+        <file>Rectangle.qml</file>
     </qresource>
 </RCC>

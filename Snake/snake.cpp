@@ -28,7 +28,6 @@ int snake::snakeMovementX()
         positionX = positionX - 5;
     default:
         break;
-
     }
     return positionX;
 

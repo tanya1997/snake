@@ -43,11 +43,16 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\Snake\main.cpp debug\qrc_qml.cpp
+SOURCES       = ..\Snake\main.cpp \
+		..\Snake\snake.cpp debug\qrc_qml.cpp \
+		debug\moc_snake.cpp
 OBJECTS       = debug/main.o \
-		debug/qrc_qml.o
+		debug/snake.o \
+		debug/qrc_qml.o \
+		debug/moc_snake.o
 
-DIST          =   ..\Snake\main.cpp
+DIST          =  ..\Snake\snake.h ..\Snake\main.cpp \
+		..\Snake\snake.cpp
 QMAKE_TARGET  = snake
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = snake.exe
@@ -70,7 +75,7 @@ dist:
 	$(ZIP) snake.zip $(SOURCES) $(DIST) ..\Snake\snake.pro E:\QtCreator\5.7\mingw53_32\mkspecs\features\spec_pre.prf E:\QtCreator\5.7\mingw53_32\mkspecs\qdevice.pri E:\QtCreator\5.7\mingw53_32\mkspecs\features\device_config.prf E:\QtCreator\5.7\mingw53_32\mkspecs\common\angle.conf E:\QtCreator\5.7\mingw53_32\mkspecs\qconfig.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3drender.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_axbase.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_axserver.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_charts.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_clucene_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_core.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_core_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_dbus.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_designer.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_gui.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_help.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_help_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_location.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_location_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_network.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_network_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_nfc.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_opengl.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_platformsupport_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_positioning.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_qml.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quick.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_script.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_script_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_scxml.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_sensors.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_serialport.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_sql.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_svg.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_testlib.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_uitools.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_websockets.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_widgets.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_winextras.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_xml.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri E:\QtCreator\5.7\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri E:\QtCreator\5.7\mingw53_32\mkspecs\features\qt_functions.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\qt_config.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\win32\qt_config.prf E:\QtCreator\5.7\mingw53_32\mkspecs\win32-g++\qmake.conf E:\QtCreator\5.7\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash E:\QtCreator\5.7\mingw53_32\mkspecs\features\exclusive_builds.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\default_pre.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\win32\default_pre.prf ..\Snake\deployment.pri E:\QtCreator\5.7\mingw53_32\mkspecs\features\resolve_config.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\exclusive_builds_post.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\default_post.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\build_pass.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\qml_debug.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\win32\rtti.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\precompile_header.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\warn_on.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\qt.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\resources.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\moc.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\win32\opengl.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\file_copies.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\win32\windows.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\testcase_targets.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\exceptions.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\yacc.prf E:\QtCreator\5.7\mingw53_32\mkspecs\features\lex.prf ..\Snake\snake.pro ..\Snake\qml.qrc E:\QtCreator\5.7\mingw53_32\lib\qtmaind.prl E:\QtCreator\5.7\mingw53_32\lib\Qt5Quickd.prl E:\QtCreator\5.7\mingw53_32\lib\Qt5Guid.prl E:\QtCreator\5.7\mingw53_32\lib\Qt5Qmld.prl E:\QtCreator\5.7\mingw53_32\lib\Qt5Networkd.prl E:\QtCreator\5.7\mingw53_32\lib\Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\qrc_qml.o
+	-$(DEL_FILE) debug\main.o debug\snake.o debug\qrc_qml.o debug\moc_snake.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -92,12 +97,66 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_qml.cpp
 debug/qrc_qml.cpp: ../Snake/qml.qrc \
 		E:/QtCreator/5.7/mingw53_32/bin/rcc.exe \
+		../Snake/Game.qml \
 		../Snake/main.qml \
 		../Pictures/Grass.jpg
 	E:\QtCreator\5.7\mingw53_32\bin\rcc.exe -name qml ..\Snake\qml.qrc -o debug\qrc_qml.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: debug/moc_snake.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) debug\moc_snake.cpp
+debug/moc_snake.cpp: E:/QtCreator/5.7/mingw53_32/include/QtCore/QObject \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobject.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qglobal.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qconfig.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qisenum.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qlogging.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qflags.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qmutex.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstring.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qchar.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qlist.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qiterator.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qpair.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qregexp.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		../Snake/snake.h \
+		E:/QtCreator/5.7/mingw53_32/bin/moc.exe
+	E:\QtCreator\5.7\mingw53_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IE:/QtCreator/5.7/mingw53_32/mkspecs/win32-g++ -IC:/Users/empyrean/Documents/programs/snake/Snake -IE:/QtCreator/5.7/mingw53_32/include -IE:/QtCreator/5.7/mingw53_32/include/QtQuick -IE:/QtCreator/5.7/mingw53_32/include/QtGui -IE:/QtCreator/5.7/mingw53_32/include/QtANGLE -IE:/QtCreator/5.7/mingw53_32/include/QtQml -IE:/QtCreator/5.7/mingw53_32/include/QtNetwork -IE:/QtCreator/5.7/mingw53_32/include/QtCore -I. -IE:/QtCreator/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IE:/QtCreator/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IE:/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include -IE:/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IE:/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IE:/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Snake\snake.h -o debug\moc_snake.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_yacc_decl_make_all:
@@ -106,7 +165,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_rcc_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean 
 
 
 
@@ -196,11 +255,84 @@ debug/main.o: ../Snake/main.cpp E:/QtCreator/5.7/mingw53_32/include/QtGui/QGuiAp
 		E:/QtCreator/5.7/mingw53_32/include/QtQml/qqmllist.h \
 		E:/QtCreator/5.7/mingw53_32/include/QtCore/qmetaobject.h \
 		E:/QtCreator/5.7/mingw53_32/include/QtQml/qqmlerror.h \
-		E:/QtCreator/5.7/mingw53_32/include/QtQml/qqmldebug.h
+		E:/QtCreator/5.7/mingw53_32/include/QtQml/qqmldebug.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtQml/QQmlContext \
+		E:/QtCreator/5.7/mingw53_32/include/QtQml/qqmlcontext.h \
+		../Snake/snake.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Snake\main.cpp
+
+debug/snake.o: ../Snake/snake.cpp ../Snake/snake.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/QObject \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobject.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobjectdefs.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qnamespace.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qglobal.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qconfig.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qfeatures.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qsystemdetection.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qprocessordetection.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qcompilerdetection.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qtypeinfo.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qtypetraits.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qisenum.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qsysinfo.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qlogging.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qflags.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qbasicatomic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qgenericatomic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qatomic_msvc.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qglobalstatic.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qmutex.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qnumeric.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qversiontagging.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstring.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qchar.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qbytearray.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qrefcount.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qarraydata.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstringbuilder.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qlist.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qalgorithms.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qiterator.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qhashfunctions.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qpair.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qbytearraylist.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstringlist.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qregexp.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qstringmatcher.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qcoreevent.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qscopedpointer.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qmetatype.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qvarlengtharray.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qcontainerfwd.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qobject_impl.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/QDebug \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qdebug.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qhash.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qmap.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qtextstream.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qiodevice.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qlocale.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qvariant.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qshareddata.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qvector.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qpoint.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qset.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qcontiguouscache.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qsharedpointer.h \
+		E:/QtCreator/5.7/mingw53_32/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\snake.o ..\Snake\snake.cpp
 
 debug/qrc_qml.o: debug/qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qrc_qml.o debug\qrc_qml.cpp
+
+debug/moc_snake.o: debug/moc_snake.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_snake.o debug\moc_snake.cpp
 
 ####### Install
 
