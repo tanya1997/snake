@@ -20,12 +20,19 @@ private:
     int positionY;
     int theDirectionOfMovement;
     int directionMovement;
+    void verticalMotion(int x);
+    void horizontalMotion(int y);
+    int count;
 
 signals:
 
 public slots:
-
    int  snakeMovementX();
+   int  snakeMovementTrunkX(int x);
+   int  snakeMovementTrunkY(int y);
+   int  snakeMovementTailX(int x);
+   int  snakeMovementTailY(int y);
+
    int  snakeMovementY();
    void snakeAlongTheXPosition(int x = 0);
    void snakeAlongTheYPosition(int y = 0);
