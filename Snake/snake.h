@@ -2,8 +2,11 @@
 #define SNAKE_H
 
 #include <QObject>
+#include <QQueue>
+#include <QList>
+#include <Coordinates.h>
 
-class snake : public QObject
+class snake : public Coordinates
 {
     Q_OBJECT
 public:
@@ -16,22 +19,26 @@ public:
     };
 
 private:
-    int positionX;
-    int positionY;
-    int theDirectionOfMovement;
+
     int directionMovement;
     void verticalMotion(int x);
     void horizontalMotion(int y);
-    int count;
+    void rightMovement();
+    void leftMovement();
+    void upMovement();
+    void downMovement();
+
+
+
 
 signals:
 
 public slots:
-   int  snakeMovementX();
-   int  snakeMovementTrunkX(int x);
-   int  snakeMovementTrunkY(int y);
-   int  snakeMovementTailX(int x);
-   int  snakeMovementTailY(int y);
+   int snakeMovementX();
+   int movementTrunkX(int j);
+   int movementTrunkY(int j);
+
+   void clearLists(int j);
 
    int  snakeMovementY();
    void snakeAlongTheXPosition(int x = 0);

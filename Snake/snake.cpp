@@ -1,118 +1,114 @@
 #include "snake.h"
-#include <QDebug>
 #include <windows.h>
+#include <QtGlobal>
+#include <QDebug>
 
-snake::snake(QObject *parent) : QObject(parent)
+
+snake::snake(QObject *parent) : Coordinates(parent)
 {
     directionMovement = Right;
-    count = 0;
 }
 
 void snake::snakeAlongTheXPosition(int x)
 {
-    positionX = x;
+    for (int i=0; i < X.size(); i++)
+        qDebug() << "i= " << i <<  X[i];
+    this->X.push_back(x);
+    this->positionX = x;
 }
 
 void snake::snakeAlongTheYPosition(int y)
 {
-    positionY = y;
+    this->Y.push_back(y);
+    this->positionY = y;
 }
 
 int snake::snakeMovementX()
 {
-    Sleep(10);
-    switch (directionMovement) {
-    case Right:
-        positionX = positionX + 20;
-        break;
-    case Left:
-        positionX = positionX - 20;
-    default:
-        break;
-    }
-    return positionX;
+    if (directionMovement == Right)
+        rightMovement();
 
+    if (directionMovement == Left)
+        leftMovement();
+
+    return this->positionX;
 }
+void snake::rightMovement()
+{
+   this->positionX = this->positionX + 20;
+}
+
+void snake::leftMovement()
+{
+    this->positionX = this->positionX - 20;
+}
+void snake::downMovement()
+{
+    this->positionY = this->positionY + 20;
+}
+void snake::upMovement()
+{
+    this->positionY = this->positionY - 20;
+}
+
 int snake::snakeMovementY()
 {
-    switch (directionMovement) {
-    case Down:
-        positionY = positionY + 20;
-        break;
-    case Up:
-        positionY = positionY - 20;
-    default:
-        break;
-    }
-    return positionY;
+    if (directionMovement == Up)
+        upMovement();
+
+    if (directionMovement == Down)
+        downMovement();
+
+    return this->positionY;
 }
-int snake::snakeMovementTrunkX(int x)
-{
-    if (positionX != x)
-        return 40;
-    else return 0;
-}
-int snake::snakeMovementTrunkY(int y)
-{
-    if (positionY != y)
-        if (directionMovement == Up)
-             return 40 * (-1);
-        else
-             return 40;
-    else
-    return 0;
-}
-int snake::snakeMovementTailX(int x)
-{
-    qDebug() << count;
-    if (positionX != x)
-        return 80;
-    else
-        if (count > 0)
-        {
-            count--;
-            return 20;
-        }
-    else return 0;
-}
-int snake::snakeMovementTailY(int y)
-{
-    if (positionY != y)
-        if (count > 0)
-        {
-            count--;
-            return 60;
-        }
-         else
-            return 80;
-    else
-    return 0;
-}
+
+
 void snake::theChangeInDirectionOfMovementSnake(int x, int y)
 {
 
-    if (directionMovement == Right || directionMovement == Left)
+    if (directionMovement == Right || directionMovement == Left) {
        horizontalMotion(y);
-    else
-        verticalMotion(x);
-    qDebug() << count;
+    }
+    else {
+       verticalMotion(x);
+    }
 
 }
+
+int snake::movementTrunkX(int j)
+{
+    return this->X[this->X.size()-j];
+
+}
+
+int snake::movementTrunkY(int j)
+{
+    return this->Y[this->Y.size()-j];
+}
+
+void snake::clearLists(int j)
+{
+    for (int i = 0; i < this->X.size()-j; i++)
+    {
+        this->X.removeAt(i);
+        this->Y.removeAt(i);
+    }
+}
+
 void snake::verticalMotion(int x)
 {
-    if (x < positionX)
+    if (x < this->positionX)
         directionMovement = Left;
 
-    if (x > positionX)
+    if (x > this->positionX)
         directionMovement = Right;
 
 }
 
 void snake::horizontalMotion(int y)
 {
-    if (y > positionY )
+    if (y > this->positionY )
         directionMovement = Down;
-    if (y < positionY)
+    if (y < this->positionY)
         directionMovement = Up;
-    count = count + 2;
 }

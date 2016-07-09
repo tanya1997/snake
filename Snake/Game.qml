@@ -5,9 +5,7 @@ import QtQuick.Layouts 1.0
 
 ApplicationWindow {
 
-    visible: true
-    width: maximumWidth
-    height: maximumHeight
+    visible: false
     property var childRec: [100];
     property int it: 0;
     Image {
@@ -25,37 +23,20 @@ ApplicationWindow {
             height: 20
             color: "#ffffff"
         }
-        Rectangle {
-            id: trunk
-            x: 180
-            y: 100
-            width: 20
-            height: 20
-            color: "red"
-        }
-        Rectangle {
-            id: tail
-            x: 160
-            y: 100
-            width: 20
-            height: 20
-            color: "pink"
-        }
 
         Timer {
             id:time
-            interval: 1000
+            interval: 500
             repeat: true
             running: true
             onTriggered: {
+                snake.clearLists(it);
                 snake.snakeAlongTheXPosition(head.x)
                 snake.snakeAlongTheYPosition(head.y)
 
                 head.x = snake.snakeMovementX()
                 head.y = snake.snakeMovementY()
 
-                trunk.x = snake.snakeMovementX() - snake.snakeMovementTrunkX(head.x)
-                trunk.y = snake.snakeMovementY() - snake.snakeMovementTrunkY(head.y)
             }
 
         }
@@ -68,21 +49,22 @@ ApplicationWindow {
                 var component = Qt.createComponent("Rectangle.qml");
 
                 childRec[it] = component.createObject(image1);
-                childRec[it].x = trunk.x -it*20;
-                childRec[it].y = trunk.y;
+
+
+                childRec[it].x = snake.movementTrunkX(it);
+                childRec[it].y = snake.movementTrunkY(it);
+
 
                 childRec.width = 20;
                 childRec.height = 20;
-                childRec.color = "black"
+                childRec.color = "yellow"
 
 
+
+                   snake.theChangeInDirectionOfMovementSnake(mouseX, mouseY)
                   var childRect = Qt.createQmlObject('import QtQuick 2.0; Timer {interval: 100; repeat: true; running: true
-            onTriggered: {  for (var j = 1; j <= it; j++) {childRec[j].x = trunk.x - j*20; childRec[j].y = trunk.y}}}',image1);
+            onTriggered: {  for (var j = 1; j <= it; j++) { childRec[j].x = snake.movementTrunkX(j); childRec[j].y = snake.movementTrunkY(j);}}}',image1);
 
-
-
-
-                snake.theChangeInDirectionOfMovementSnake(mouseX, mouseY)
 
             }
         }

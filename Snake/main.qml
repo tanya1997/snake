@@ -18,7 +18,7 @@ ApplicationWindow {
             id: play
             text: qsTr("Играть")
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            onClicked: {gameWindow.visible = true; mainMenu.visible = false; update()}
+            onClicked: {gameWindow.visible = true;gameWindow.visibility = "Maximized"; mainMenu.visible = false; update()}
         }
 
         Button {

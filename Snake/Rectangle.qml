@@ -4,5 +4,5 @@ Rectangle {
     id: knItem
     width: 20
     height: 20
-    color: "black"
+    color: "yellow"
 }

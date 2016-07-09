@@ -3,7 +3,9 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    snake.cpp
+    snake.cpp \
+    Coordinates.cpp \
+    Eat.cpp
 
 RESOURCES += qml.qrc
 
@@ -14,4 +16,8 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    snake.h
+    snake.h \
+    Coordinates.h \
+    Eat.h
+
+DISTFILES +=

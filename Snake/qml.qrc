@@ -4,5 +4,6 @@
         <file>../Pictures/Grass.jpg</file>
         <file>Game.qml</file>
         <file>Rectangle.qml</file>
+        <file>GameOver.qml</file>
     </qresource>
 </RCC>
